@@ -9,21 +9,51 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate { //UITextFieldDelegate - For Return key to disappear
-    var buttonCount = 0
+    // var buttonCount = 0
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var leftfield: UITextField!
+    @IBOutlet weak var rightfield: UITextField!
+    @IBOutlet weak var additionSwitch: UISwitch!
+    
+    
+    
+    
     @IBAction func buttonTapped(_ sender: Any) {
         view.backgroundColor = UIColor.red
         myLabel.text = "Sheju"
     }
     @IBAction func buttonConted(_ sender: Any) {
-        buttonCount = buttonCount + 1
+        //print(leftfield.text!)
+        //print(rightfield.text!)
+        
+        let addition = additionSwitch.isOn
+        if addition {
+            let sum = Double(leftfield.text!)! + Double(rightfield.text!)!
+            //myLabel.text = String(sum)
+            myLabel.text = "The sum is \(sum)" // String interpulation
+        } else {
+            let sum = Double(leftfield.text!)! - Double(rightfield.text!)!
+            //myLabel.text = String(sum)
+            myLabel.text = "The subtraction is \(sum)" // String interpulation
+        }
+        
+        
+        
+      
+        
+        
+        
+       /* buttonCount = buttonCount + 1
         //print(buttonCount)
         if buttonCount >= 10 {
            view.backgroundColor = UIColor.red
             myLabel.text = "10"
-        }
+        } */
+        
+        
+        
     }
     
     // Any time you want to change the label - make sure delete from the code as well as delete from the connection inspector
